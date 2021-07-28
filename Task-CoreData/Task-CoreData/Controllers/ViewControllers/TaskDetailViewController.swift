@@ -17,7 +17,8 @@ class TaskDetailViewController: UIViewController {
     
     // MARK: - PROPERTIES
     var task: Task?
-    var date: Date?
+    
+    //var date: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,5 +65,4 @@ class TaskDetailViewController: UIViewController {
         taskDueDatePicker.date = picker.date
         
     }
-
-}
+}// End of class

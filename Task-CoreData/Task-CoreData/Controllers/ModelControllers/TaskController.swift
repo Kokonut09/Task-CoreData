@@ -15,7 +15,6 @@ class TaskController {
     
     var tasks: [Task] = []
     
-    //
     private lazy var fetchRequest: NSFetchRequest<Task> = {
         
         let reqeust = NSFetchRequest<Task>(entityName: "Task")
@@ -29,7 +28,6 @@ class TaskController {
     // MARK: - CRUD
     
     func createTaskWith(name: String, notes: String?, dueDate: Date?){
-        
         let taskToAdd = Task(name: name, notes: notes, dueDate: dueDate)
         
         tasks.append(taskToAdd)
@@ -57,4 +55,16 @@ class TaskController {
         
         CoreDataStack.saveContext()
     }
-}
+    
+    func deleteTaskWith(task: Task){
+        
+        guard let index = tasks.firstIndex(of: task) else { return }
+        
+        print("We good deletin")
+        tasks.remove(at: index)
+        
+        //IMPORTANT TO REMVOE FROM PERSISTANCE
+        CoreDataStack.context.delete(task)
+        CoreDataStack.saveContext()
+    }
+}// End of class

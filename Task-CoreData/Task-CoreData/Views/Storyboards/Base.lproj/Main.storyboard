@@ -38,6 +38,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="kIL-7c-6HJ" secondAttribute="height" multiplier="1:1" id="I84-Fu-FD8"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                                                     <state key="normal" image="incomplete"/>
                                                     <connections>

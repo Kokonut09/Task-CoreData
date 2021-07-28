@@ -9,6 +9,7 @@ import UIKit
 
 class TaskListTableViewController: UITableViewController {
 
+    // MARK: - LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,13 +24,11 @@ class TaskListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return TaskController.shared.tasks.count
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell()}
         
@@ -43,21 +42,19 @@ class TaskListTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            let taskToDelete = TaskController.shared.tasks[indexPath.row]
+            
+            TaskController.shared.deleteTaskWith(task: taskToDelete)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    */
-
-  
+   
     // MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
@@ -78,7 +75,7 @@ class TaskListTableViewController: UITableViewController {
             
         }
     }
-}
+}// End of class
 
 extension TaskListTableViewController: TaskCompletionDelegate{
     
@@ -89,4 +86,4 @@ extension TaskListTableViewController: TaskCompletionDelegate{
         sender.updateViews()
         //tableView.reloadData()
     }
-}
+} // end of extension

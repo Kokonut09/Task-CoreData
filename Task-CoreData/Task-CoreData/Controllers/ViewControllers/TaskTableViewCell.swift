@@ -17,7 +17,6 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var completionButton: UIButton!
     
-    
     // MARK: - PROPERTIES
     
     weak var delegate: TaskCompletionDelegate?
@@ -28,7 +27,6 @@ class TaskTableViewCell: UITableViewCell {
         }
     }
     
-    
     // MARK: - HELPER METHODS
     func updateViews(){
        
@@ -37,12 +35,9 @@ class TaskTableViewCell: UITableViewCell {
         
         let image = task.isComplete ? ( UIImage(named: "complete") ?? UIImage() ) : ( UIImage(named: "incomplete") ?? UIImage() )
         print(image)
-        completionButton.setBackgroundImage(image, for: .normal)
-        
+        completionButton.setImage(image, for: .normal)
         
     }
-    
-    // MARK: - LIFECYCLES
     
     // MARK: - ACTIONS
     @IBAction func completionButtonTapped(_ sender: Any) {
@@ -50,6 +45,4 @@ class TaskTableViewCell: UITableViewCell {
         delegate?.taskCellButtonTapped(self)
         
     }
-    
-
-}
+}// End of class

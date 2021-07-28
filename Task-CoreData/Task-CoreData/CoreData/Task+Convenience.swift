@@ -21,5 +21,4 @@ extension Task{
         self.isComplete = isComplete
         
     }
-    
-}
+} // end of extension
